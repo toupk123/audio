@@ -7366,7 +7366,6 @@ var Http_Http = function () {
                                     }
                                     obj = {
                                         method: 'GET',
-                                        credentials: "include",
                                         headers: _header ? _header : {
                                             "Content-Type": "application/x-www-form-urlencoded"
                                         }
@@ -7394,33 +7393,35 @@ var Http_Http = function () {
 
                             case 6:
                                 response = _context.sent;
+
+                                console.log('123123123', response);
                                 result = '';
 
                                 if (!(response.type !== "cors")) {
-                                    _context.next = 11;
+                                    _context.next = 12;
                                     break;
                                 }
 
                                 result = response.json();
                                 return _context.abrupt('return', result);
 
-                            case 11:
-                                _context.next = 17;
+                            case 12:
+                                _context.next = 18;
                                 break;
 
-                            case 13:
-                                _context.prev = 13;
+                            case 14:
+                                _context.prev = 14;
                                 _context.t0 = _context['catch'](0);
 
                                 console.log(_context.t0);
                                 toast.fail('\u597D\u50CF\u51FA\u9519\u4E86\uFF0C\u8BF7\u68C0\u67E5\u662F\u5426\u6709\u7F51', 0);
 
-                            case 17:
+                            case 18:
                             case 'end':
                                 return _context.stop();
                         }
                     }
-                }, _callee, this, [[0, 13]]);
+                }, _callee, this, [[0, 14]]);
             }));
 
             function getData(_x) {
@@ -7455,7 +7456,7 @@ function Ajax__asyncToGenerator(fn) { return function () { var gen = fn.apply(th
 
 var Ajax_getAudioInfoList = function () {
   var _ref = Ajax__asyncToGenerator( /*#__PURE__*/regenerator_default.a.mark(function _callee(param) {
-    var HttpParam, res;
+    var HttpParam, res, list;
     return regenerator_default.a.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -7471,23 +7472,29 @@ var Ajax_getAudioInfoList = function () {
           case 3:
             res = _context.sent;
 
-            console.log(res);
-            /* if (res.code === code) {
-               let list: getAudioInfo[] = []
-               res.result.map(item => {
-                 list.push({
-                   id: item.id,
-                   title: item.al[0].name,
-                   pic: item.al[0].picUrl,
-                   song: item.ar[0].name
-                 })
-               })
-               return list
-             } else {
-               return []
-             }*/
+            console.log('1312312', res);
 
-          case 5:
+            if (!(res.code === code)) {
+              _context.next = 11;
+              break;
+            }
+
+            list = [];
+
+            res.result.songs.map(function (item) {
+              list.push({
+                id: item.id,
+                title: item.al[0].name,
+                pic: item.al[0].picUrl,
+                song: item.ar[0].name
+              });
+            });
+            return _context.abrupt('return', list);
+
+          case 11:
+            return _context.abrupt('return', []);
+
+          case 12:
           case 'end':
             return _context.stop();
         }
