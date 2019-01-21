@@ -3,48 +3,11 @@
     padding:0;
     box-sizing: border-box;
 }
-::-webkit-scrollbar{display:none;}
+
 html,body,#App{
     height:100%;
-    overflow: hidden;
-    position: relative;
+    font-size: 12px !important
 }
 
-.ant-menu-inline-collapsed>.ant-menu-item, .ant-menu-inline-collapsed>.ant-menu-item-group>.ant-menu-item-group-list>.ant-menu-item, .ant-menu-inline-collapsed>.ant-menu-submenu>.ant-menu-submenu-title{
-    left: 0;
-    text-overflow: clip;
-    padding: 0 !important;
-    text-align: center;
-}
-
-::-webkit-scrollbar-thumb{
-    background: #1890ff;
-}
-
-::-webkit-scrollbar{
-    display: block;
-    background: #fff;
-    width: 4px;
-    height:5px;
-}
-
-.ant-layout-sider{
-    overflow: auto;
-}
-
-.loading{
-    width: 150px;
-    height: 150px;
-    top: 0;
-    bottom: 0;
-    right:0;
-    left:0;
-    margin: auto;
-    position: absolute;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-image: url('./img/1d08f0c32e5f98f9a3d1dea7189203203501a2ae1f177-pKrpr0_fw658.gif')
-}
 
 
